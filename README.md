@@ -5,7 +5,7 @@ This is a playable version of 13 sheep implemented in Javascript.
 Instructions
 ------------
 
-[13 Sheep](https://www.moritzdressler.de/en/13_Sheep) is a quick roll-and-write game for one or more players. By drawing fences on a grid, players try to protect as many sheep as possible before the wolf comes.
+[13 Sheep](https://www.moritzdressler.de/en/13_Sheep) is a quick roll-and-write game for one or more players. By drawing fences on a grid that initially has some sheep and bushes, players try to protect as many sheep as possible before the wolf comes.
 
 Each turn, players roll a die and draw a matching fence on the map. The original game can last for 7 to 10 rounds, depending on the result of the die roll in the last 3 rounds. You cannot overwrite fences already drawn, and you cannot build a fence on top of a bush (the wolf can, however, slide under a bush).
 

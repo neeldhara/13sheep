@@ -1,0 +1,161 @@
+<br>
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>13 Sheep</title>
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Edu+TAS+Beginner&family=Henny+Penny&family=Pompiere&display=swap');
+  </style>
+</head>
+
+<body>
+  <div class="game-container">
+    <canvas id="game-canvas" width="460" height="460"></canvas>
+    <div class="number-container">
+      <div class="number-circle">1</div>
+      <div class="number-circle">2</div>
+      <div class="number-circle">3</div>
+      <div class="number-circle">4</div>
+      <div class="number-circle">5</div>
+      <div class="number-circle">6</div>
+    </div>
+    <div id="rollDiceButton">
+      <button class="roll-dice-btn">Roll Dice</button>
+    </div>
+    <div id="gameover" style="display: none; padding-top:20px;">
+      <img src="images/wolf.png" width="87px;" alt="Wolf" id="wolfImage">
+      <p></p>
+      <a href="#" id="shareGameLink" style="color:crimson; text-decoration:none;">Share My Game!</a>
+    </div>
+
+    <div id="shareModal" class="modal3">
+      <div class="modal-content3">
+        <span class="close">&times;</span>
+        <h2>Your Game</h2>
+        <img id="capturedCanvas" src="" alt="Captured Canvas" />
+        <p></p>
+        <p>You can right click on the image above to save it, just to keep a record, email it to a friend, or even show
+          off
+          on social media... remember that at the moment, you have to calculate your own score!</p>
+      </div>
+    </div>
+
+    <!-- Add this line below the existing Roll Dice button element -->
+    <p id="instruction-text"></p>
+    <div id="orientation-select" style="display: none;">
+      <p>Pick an orientation for your fence:</p>
+      <div class="orientation-option" data-value="0">0</div>
+      <div class="orientation-option" data-value="90">90</div>
+      <div class="orientation-option" data-value="180">180</div>
+      <div class="orientation-option" data-value="270">270</div>
+      <div id="passround">P</div>
+    </div>
+    <div id="roll-1" style="display: none; margin-top: 10px;">
+      <img src="images/1.png">
+    </div>
+    <div id="roll-2" style="display: none; margin-top: 10px;">
+      <img src="images/2.png">
+    </div>
+    <div id="roll-3" style="display: none; margin-top: 10px;">
+      <img src="images/3.png">
+    </div>
+    <div id="roll-4" style="display: none; margin-top: 10px;">
+      <img src="images/4.png">
+    </div>
+    <div id="roll-5" style="display: none; margin-top: 10px;">
+      <img src="images/5.png">
+    </div>
+    <div id="roll-6" style="display: none; margin-top: 10px;">
+      <img src="images/6.png">
+    </div>
+
+    <div class="modal" id="roundsModal">
+      <div class="modal-content">
+        <h2>Welcome to 13 Sheep!</h2>
+        <p>How many rounds do you want to play? <br>Enter a number between 5 and 20.</p>
+        <input type="number" id="roundsInput" min="5" max="20" value="11" required>
+        <p>How many sheep on the board? <br>Enter a number between 7 and 21.</p>
+        <input type="number" id="sheepInput" min="7" max="21" value="13" required>
+        <p>How many bushes on the board? <br>Enter a number between 5 and 15.</p>
+        <input type="number" id="bushesInput" min="5" max="15" value="10" required>
+        <p><a href="https://github.com" target="_blank">Read the instructions first.</a></p>
+        <p></p>
+        <button id="submitRounds" style="font-family: 'Henny Penny'; font-size: xx-large;">Let's Go</button>
+      </div>
+    </div>
+    <div id="instructions-modal" class="modal2">
+      <div class="modal-content2">
+        <span class="close">&times;</span>
+        <h2>Instructions</h2>
+        <p><a href="https://www.moritzdressler.de/en/13_Sheep">13 Sheep</a> is a quick roll-and-write game for one or
+          more players. By drawing fences on a grid,
+          players
+          try to protect as many sheep as possible before the wolf comes.</p>
+        <p>Each turn, players roll a die and draw a matching fence on the map. The original game can last for 7 to 10
+          rounds, depending on the result of the die roll in the last 3 rounds. You cannot overwrite fences already
+          drawn, and you cannot build a fence on top of a bush (the wolf can, however, slide under a bush).</p>
+        <p>At the end of the game, each completely enclosed area will score the players points depending on the number
+          of sheep within. When playing solo, players try to beat their own high score.</p>
+        <p>In this version of the game, you can choose the number of rounds, sheep, and bushes. The sheeps and bushes
+          (denoted by red borders) will be placed randomly. Note that sometimes the actual number of sheep and bushes
+          can be less than what you asked for because the random location generator may generate the same location more
+          than once. This does not happen often!</p>
+        <p>Every time you roll a dice, you have to choose one of the orientations that come up. The pictures, like the
+          one below, will show you what the fence will look like on the grid (the blue square represents the cell you
+          click
+          on). Note that for outcomes 5 and 6, the orientations 0 and 180 are the same, as are 90 and 270. If you would
+          like to pass on a particular round (typically because there is no room to draw any of the fences), you can
+          click on the "P" option. You can also just refresh the page to start over.</p>
+        <img src="images/2.png" />
+      </div>
+    </div>
+    <div id="fence-modal" class="modal2">
+      <div class="modal-content2">
+        <span class="close">&times;</span>
+        <h2>Fence Shapes</h2>
+        <img src="images/1a.png">
+        <hr>
+        <img src="images/2a.png">
+        <hr>
+        <img src="images/3a.png">
+        <hr>
+        <img src="images/4a.png">
+        <hr>
+        <img src="images/5a.png">
+        <hr>
+        <img src="images/6a.png">
+      </div>
+    </div>
+    <div id="credits-modal" class="modal2">
+      <div class="modal-content2">
+        <span class="close">&times;</span>
+        <h2>Credits</h2>
+        <p>You can find out more about 13 Sheep, the original roll-and-write game <a
+            href="https://www.moritzdressler.de/en/13_Sheep">here</a>.</p>
+        <p>Much of the code in this implementation was generated by ChatGPT (GPT-v4), and some of it was enhanced and
+          fixed by Ghostwriter on <a href="repl.it">repl.it</a>.</p>
+        <p>You can find out more about the prompts used on this
+          <a href="https://www.neeldhara.com/blog/13sheep">blog</a>.
+        <p> Find the source on <a href="https://www.github.com/neeldhara/13sheep">Github</a>.
+        </p>
+        <p>The sheep and wolf icons are from <a href="https://www.flaticon.com/">Flaticon</a>.</p>
+        <p>This website is hosted by <a href="https://www.netlify.com/">Netlify</a>.</p>
+        <p>Much thanks to Jyothi from the Center for Creative Learning at IIT Gandhinagar for introducing me to this
+          game!</p>
+      </div>
+    </div>
+    <div id="modallinks">
+      <span id="instructions-link">Instructions</span> • <span id="fence-link">Fences</span> • <span
+        id="credits-link">Credits</span> • <a href="comments.html" class="discusslink">Discuss</a>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+
+</body>
+
+</html>

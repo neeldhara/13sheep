@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Comments</title>
+  <style type="text/css">
+    body {
+      text-align: center;
+      font-family: 'Edu TAS Beginner', Arial, sans-serif;
+      font-size: x-large;
+    }
+
+    h1,
+    h2 {
+      font-family: "Henny Penny", cursive;
+    }
+
+    a {
+      color: dodgerblue;
+      text-decoration: none;
+    }
+
+    #comments {
+      max-width: 610px;
+      margin: 0 auto;
+    }
+  </style>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Edu+TAS+Beginner&family=Henny+Penny&family=Pompiere&display=swap');
+  </style>
+</head>
+
+<body>
+  <h1>Discuss</h1>
+  <p><a href="index.html">Go back to the game.</a></p>
+  <div id="comments">
+    <div id="hyvor-talk-view"></div>
+  </div>
+  <script type="text/javascript">
+    var HYVOR_TALK_WEBSITE = 8672;
+    var HYVOR_TALK_CONFIG = {
+      url: false,
+      id: false
+    };
+  </script>
+  <script async type="text/javascript" src="//talk.hyvor.com/web-api/embed.js"></script>
+</body>
+
+</html>

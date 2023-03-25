@@ -878,13 +878,13 @@ document.querySelector("#passround").addEventListener("click", function() {
 
 const instructionsLink = document.getElementById('instructions-link');
 const instructionsModal = document.getElementById('instructions-modal');
-const closeModal = document.querySelector('.close');
+const closeinstructionsModal = document.getElementById('closeinstructions');
 
 instructionsLink.addEventListener('click', () => {
   instructionsModal.style.display = 'block';
 });
 
-closeModal.addEventListener('click', () => {
+closeinstructionsModal.addEventListener('click', () => {
   instructionsModal.style.display = 'none';
 });
 
@@ -897,12 +897,13 @@ window.addEventListener('click', (event) => {
 
 const fenceLink = document.getElementById('fence-link');
 const fenceModal = document.getElementById('fence-modal');
+const closefenceModal = document.getElementById('closefence');
 
 fenceLink.addEventListener('click', () => {
   fenceModal.style.display = 'block';
 });
 
-closeModal.addEventListener('click', () => {
+closefenceModal.addEventListener('click', () => {
   fenceModal.style.display = 'none';
 });
 
@@ -915,12 +916,13 @@ window.addEventListener('click', (event) => {
 
 const creditsLink = document.getElementById('credits-link');
 const creditsModal = document.getElementById('credits-modal');
+const closecreditsModal = document.getElementById('closecredits');
 
 creditsLink.addEventListener('click', () => {
   creditsModal.style.display = 'block';
 });
 
-closeModal.addEventListener('click', () => {
+closecreditsModal.addEventListener('click', () => {
   creditsModal.style.display = 'none';
 });
 

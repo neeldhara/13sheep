@@ -249,6 +249,8 @@ function colorCellBoundaries(totalBushes) {
   const cellBoundaryCount = totalBushes;
   ctx.strokeStyle = 'indianred';
   ctx.lineWidth = 4;
+  ctx.setLineDash([5, 5]); // Add this line to set the line dash pattern
+
 
   for (let i = 0; i < cellBoundaryCount; i++) {
     const row = getRandomInt(0, gridSize - 1);

@@ -286,6 +286,9 @@ function colorCellBoundaries(totalBushes) {
     }
     ctx.stroke();
   }
+
+  ctx.setLineDash([]); // Add this line to set the line dash pattern
+
 }
 
 function finishgame() {
